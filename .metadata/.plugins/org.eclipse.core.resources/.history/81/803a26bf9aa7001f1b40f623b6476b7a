@@ -1,8 +1,0 @@
-##configuração servidor tomcat local
-#Thu Jul 29 11:05:06 BRT 2010
-server.loader=
-package.access=sun.,org.apache.catalina.,org.apache.coyote.,org.apache.tomcat.,org.apache.jasper.,sun.beans.
-shared.loader=${catalina.home}/shared/classes,${catalina.home}/shared/lib/*.jar,c\:/java/systemakers/repositorio/classes
-package.definition=sun.,java.,org.apache.catalina.,org.apache.coyote.,org.apache.tomcat.,org.apache.jasper.
-common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar
-tomcat.util.buf.StringCache.byte.enabled=true
