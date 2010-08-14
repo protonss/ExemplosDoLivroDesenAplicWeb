@@ -1,0 +1,1 @@
+<strong>Esse texto faz parte do rodapé</strong>

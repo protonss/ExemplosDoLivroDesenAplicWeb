@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<livros>
+	<livro>
+		<isbn>85-7393-486-7</isbn>
+		<titulo>Dominando Eclipse</titulo>
+		<edicao>1</edicao>
+		<publicacao>2006</publicacao>
+		<descricao>Conheça a IDE mais usada do momento</descricao>
+	</livro>
+	<livro>
+		<isbn>85-7393-519-7</isbn>
+		<titulo>Dominando NetBeans</titulo>
+		<edicao>1</edicao>
+		<publicacao>2006</publicacao>
+		<descricao>
+			Conheça as principais características dessa IDE
+		</descricao>
+	</livro>
+	<livro>
+		<isbn>85-7393-543-X</isbn>
+		<titulo>Dominando AJAX</titulo>
+		<edicao>1</edicao>
+		<publicacao>2006</publicacao>
+		<descricao>Domine o AJAX</descricao>
+	</livro>
+	<livro>
+		<isbn>85-7393-536-7</isbn>
+		<titulo>Tomcat: Guia Rápido</titulo>
+		<edicao>1</edicao>
+		<publicacao>2006</publicacao>
+		<descricao>Tomcat 5.5</descricao>
+	</livro>
+	<livro>
+		<isbn>85-7393-436-0</isbn>
+		<titulo>Dominando JBuilder X</titulo>
+		<edicao>1</edicao>
+		<publicacao>2005</publicacao>
+		<descricao>Domine o JBuilder você também</descricao>
+	</livro>
+</livros>
+

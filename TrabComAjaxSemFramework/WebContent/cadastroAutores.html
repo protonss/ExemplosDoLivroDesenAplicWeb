@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Cadastro de Autores usando Ajax sem Frameworks</title>
+<script language="JavaScript">
+function objXMLHttp( ){
+
+	if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+		var objetoXMLHttp = new XMLHttpRequest( );
+		return objetoXMLHttp;
+	} else if (window.ActiveXObject) { // IE
+			
+		var versoes = [ "MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.5.0",
+						"MSXML2.XMLHttp.4.0","MSXML2.XMLHttp.3.0",
+						"MSXML2.XMLHttp","Microsoft.XMLHttp"
+				];
+		
+				for (var i = 0; i < versoes.length; i++) {
+					try {
+						var objetoXMLHttp = new ActiveXObject(versoes[i]);
+						return objetoXMLHttp;
+					} catch (ex) {
+						//nada aqui
+					}
+				}
+	}
+			return false;
+}
+function enviar(formulario) {
+
+	var dados = "nome="+formulario.nome.value;
+	dados += "&email="+formulario.email.value;
+	dados += "&nascimento="+formulario.nascimento.value;
+
+    var oXMLHttp = objXMLHttp( );
+    oXMLHttp.open("POST", "ServletCadastroAjax", true);
+    oXMLHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    oXMLHttp.onreadystatechange = function ( ) {
+        if (oXMLHttp.readyState == 4) {
+            if (oXMLHttp.status == 200) {
+                mensagem(oXMLHttp.responseText);
+            } else {
+                mensagem("Ocorreu o erro: "+ oXMLHttp.statusText);
+            }
+        }
+    };
+    oXMLHttp.send(dados);
+	return false;
+}
+function mensagem(msg){
+	document.getElementById('msg').innerHTML=msg;
+
+}
+</script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="" onsubmit="return enviar(this);">
+<fieldset><legend>Cadastro de Autores</legend>
+  <p>Nome:
+    <input name="nome" type="text" id="nome" />
+    <br /><br />
+    E-mail: 
+    <input name="email" type="text" id="email" />
+    <br /><br />
+    Nascimento: 
+    <input name="nascimento" type="text" id="nascimento" size="8" />
+    <br />
+  </p>
+  <p>
+    <input type="submit" name="Submit" value="Enviar" />
+  </p>
+<div id="msg"></div>
+</fieldset>
+</form>
+</body>
+</html>

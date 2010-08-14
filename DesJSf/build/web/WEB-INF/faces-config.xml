@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+
+<!DOCTYPE faces-config PUBLIC
+"-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+"http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config>
+    <managed-bean>
+        <managed-bean-name>
+            MeuBean
+        </managed-bean-name>
+        <managed-bean-class>
+            meupacote.MeuBean
+        </managed-bean-class>
+        <managed-bean-scope>
+            session
+        </managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Sessao</managed-bean-name>
+        <managed-bean-class>meupacote.SessaoBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/trabComJSF.jsp</from-view-id>  
+        
+        <navigation-case>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/boasVindas.jsp</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>falha</from-outcome>
+            <to-view-id>/trabComJSF.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>       
+    
+</faces-config>

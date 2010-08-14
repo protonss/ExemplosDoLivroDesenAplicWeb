@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Utilizando AJAX sem o uso de Frameworks</title>
+<script language="JavaScript">
+function dados( ){
+	var ajax = false;
+	if (window.XMLHttpRequest) { // Mozilla, Safari, ...
+		ajax = new XMLHttpRequest( );
+	} else if (window.ActiveXObject) { // IE
+		ajax = new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	if(ajax) {
+	    ajax.open("GET", "ServletAjax", true);
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4) {
+				if (ajax.status == 200) {
+					alert(ajax.responseText);
+				} else {
+					alert('Houve um problema ao carregar.');
+				}
+			}
+        }
+	}
+	ajax.send(null);
+}	
+</script>
+</head>
+<body>
+<a href="#" onclick="dados( )">Trazer Dados</a>
+</body>
+</html>

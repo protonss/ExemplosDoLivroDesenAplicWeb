@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf11663956267030" configfile="/TrabComAjax4jsf/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf11664104878430" outlinks="pf11664104878431" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="form" id="pf11664104878432" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf11664104878431" path="/form.jsp"/>
+  <links id="pf11664104878431" target="pf11664104878432" source="pf11664104878430" outcome="form"/>
+</pageflow:Pageflow>

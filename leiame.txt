@@ -1,0 +1,161 @@
+Olá caro leitor,
+
+Estes arquivos pertencem ao livro Desenvolvendo Aplicações Web com JSP, SERVLETS, 
+JAVASERVER FACES, HIBERNATE, EJB 3 PERSISTENCE E AJAX.
+Os projetos foram criados no Eclipse, como o próprio livro diz.
+A seguir você tem cada projeto e a qual capítulo pertence:
+
+Capítulo	Projeto
+1		Não possui projeto
+2		Não possui projeto
+3		Não possui projeto
+4		Não possui projeto
+5		Não possui projeto
+6		EnvCaracteresEsp
+7		ServletsComOutrosMets
+8		ServletsComCookies
+		ServletsComSession
+9		CriandoJSPComEclipse
+10		CompJspComServlets
+11		TrabComErros
+12		TrabComStandardAction
+13		TrabComJavaBeans
+14		UploadArquivosComSeguranca
+15		TrabComJDBC
+16		TrabComEL
+17		DesenvolvendoComJSTL
+18		TrabComBibliotecaDeTags
+19		EnviandoEmail
+		EnviandoComCommonEmail
+20		TrabComMVC2
+		TrabComDAO
+21		DesJSF (Projeto em NetBeans)
+		JSFComDAO (Projeto em NetBeans)
+22		JavaServerFacesComHibernate
+		JavaServerFacesHibernateAnnotations
+23		JavaServerFacesComToplink
+24		TrabComDWR
+		TrabComDojo
+		TrabComAjaxSemFramework
+		TrabComAjax4jsf
+
+
+ATENÇÃO LEITOR
+
+Algumas versões de containers Web, como Oracle App Server, 
+não seguem a regra das especificações do Servlet  2.3  de chamar os listeners 
+ServletContextListener definidos em arquivos TLD, no diretório META-INF, 
+dentro de arquivos JAR. 
+Ao rodar uma aplicação Web com JavaServer Faces em tal container, nestes casos, 
+você precisará fazer algumas alterações para que a aplicação funcione corretamente.
+A seguir existem alguns erros comuns no desenvolvimento de JavaServer Faces.
+
+Se ocorrer um erro como esse:
+
+SEVERE: StandardWrapper.Throwable
+java.lang.NullPointerException
+	at javax.faces.webapp.FacesServlet.init(FacesServlet.java:144)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1105)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:757)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:130)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:664)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Unknown Source)
+28/02/2007 22:36:36 org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Allocate exception for servlet Faces Servlet
+java.lang.NullPointerException
+	at javax.faces.webapp.FacesServlet.init(FacesServlet.java:144)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1105)
+	at org.apache.catalina.core.StandardWrapper.allocate(StandardWrapper.java:757)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:130)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:664)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:80)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:684)
+	at java.lang.Thread.run(Unknown Source)
+
+Solucione com a adição destas linhas no deployment descriptor (web.xml):
+
+<listener>
+<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+</listener>
+
+No JBoss 4
+
+Se ocorrer um erro como esse:
+
+02:28:57,531 INFO  [STDOUT] 02:28:57,531 ERROR [[Faces Servlet]] Servlet.service() for servlet Faces Servlet threw exception
+java.lang.NullPointerException
+	at javax.faces.webapp.UIComponentTag.setupResponseWriter(UIComponentTag.java:615)
+	at javax.faces.webapp.UIComponentTag.doStartTag(UIComponentTag.java:217)
+	at org.apache.myfaces.taglib.core.ViewTag.doStartTag(ViewTag.java:71)
+	at org.apache.jsp.mostrarLivros_jsp._jspx_meth_f_view_0(mostrarLivros_jsp.java:114)
+	at org.apache.jsp.mostrarLivros_jsp._jspService(mostrarLivros_jsp.java:89)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:97)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:810)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:332)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:314)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:264)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:810)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:672)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:398)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+	at com.sun.faces.context.ExternalContextImpl.dispatch(ExternalContextImpl.java:322)
+	at com.sun.faces.application.ViewHandlerImpl.renderView(ViewHandlerImpl.java:130)
+	at com.sun.faces.lifecycle.RenderResponsePhase.execute(RenderResponsePhase.java:87)
+	at com.sun.faces.lifecycle.LifecycleImpl.phase(LifecycleImpl.java:200)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:117)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:198)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:252)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.jboss.web.tomcat.filters.ReplyHeaderFilter.doFilter(ReplyHeaderFilter.java:96)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:202)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:173)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:178)
+	at org.jboss.web.tomcat.security.SecurityAssociationValve.invoke(SecurityAssociationValve.java:175)
+	at org.jboss.web.tomcat.security.JaccContextValve.invoke(JaccContextValve.java:74)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:126)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:105)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:107)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:148)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:869)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:664)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:527)
+	at org.apache.tomcat.util.net.MasterSlaveWorkerThread.run(MasterSlaveWorkerThread.java:112)
+	at java.lang.Thread.run(Unknown Source)
+
+Solucione com:
+Adicione no diretório WEB-INF os arquivos:
+html_basic.tld
+jsf_core.tld
+
+E substitua a diretiva taglib padrão do JSF por:
+(Em comentário no projeto JavaServerFacesHibernateAnnotations)
+
+<%@ taglib uri="/WEB-INF/html_basic.tld" prefix="h" %>
+<%@ taglib uri="/WEB-INF/jsf_core.tld" prefix="f" %>
+
+
+
+
+
+
+

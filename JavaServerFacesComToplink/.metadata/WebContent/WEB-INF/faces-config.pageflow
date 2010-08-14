@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf11652955190150" configfile="/JavaServerFacesComToplink/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="mostrarLivros" x="554" y="946" id="pf11653386423900" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" outlinks="pf11653386423901 pf11653386423902 pf11653386423903" inlinks="pf11653386423904 pf11653386423905 pf11653386423902 pf11653386423906" path="/mostrarLivros.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="atualizarLivros" x="338" y="946" id="pf11653386423907" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf11653386423905" inlinks="pf11653386423901" path="/atuLivro.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="formLivros" x="338" y="562" id="pf11653386423908" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" outlinks="pf11653386423904" inlinks="pf11653386423909 pf11653386423903" path="/formLivros.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="menu" x="122" y="562" id="pf116533864239010" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf11653386423909" path="/menu.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="338" y="1330" id="pf116533864239011" outlinks="pf11653386423906 pf116533864239012" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="busca" x="122" y="178" id="pf116533864240613" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf116533864240614" path="/busca.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="mostrarLivrosPesquisados" x="338" y="178" id="pf116533864240615" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf116533864240614" path="/mostrarLivrosPesquisados.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="mostrarLivros2" id="pf116533864240616" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf116533864239012" path="/mostrarLivros2.jsp"/>
+  <links id="pf11653386423901" target="pf11653386423907" source="pf11653386423900" outcome="editar"/>
+  <links id="pf11653386423904" target="pf11653386423900" source="pf11653386423908" outcome="sucesso_ins"/>
+  <links id="pf11653386423909" target="pf11653386423908" source="pf116533864239010" outcome="novo"/>
+  <links id="pf11653386423905" target="pf11653386423900" source="pf11653386423907" outcome="sucesso_atu"/>
+  <links id="pf11653386423906" target="pf11653386423900" source="pf116533864239011" outcome="mostrar"/>
+  <links id="pf11653386423903" target="pf11653386423908" source="pf11653386423900" outcome="novo"/>
+  <links id="pf116533864240614" target="pf116533864240615" source="pf116533864240613" outcome="pesquisado"/>
+  <links id="pf11653386423902" target="pf11653386423900" source="pf11653386423900" outcome="sucesso_exc">
+    <bendPoints d1Height="-36" d2Height="-36"/>
+    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
+    <bendPoints d1Width="-64" d2Width="-64"/>
+  </links>
+  <links id="pf116533864239012" target="pf116533864240616" source="pf116533864239011" outcome="paginar"/>
+</pageflow:Pageflow>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf11649199710150" configfile="/JavaServerFacesHibernateAnnotations/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="mostrarLivros" id="pf11649199871251" referenceLink="//@navigationRule.6/@fromViewId|" outlinks="pf11649199871252 pf11649199871253 pf11649199871254" inlinks="pf11649199871255 pf11649199871256 pf11649199871253 pf11649199871257" path="/mostrarLivros.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="atualizarLivros" id="pf11649199871258" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf11649199871256" inlinks="pf11649199871252" path="/atuLivro.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="formLivros" id="pf11649199871259" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" outlinks="pf11649199871255" inlinks="pf116491998712510 pf11649199871254" path="/formLivros.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="menu" id="pf116491998714011" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf116491998712510" path="/menu.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf116491998714012" outlinks="pf11649199871257" path="*"/>
+  <links id="pf11649199871252" target="pf11649199871258" source="pf11649199871251" outcome="editar"/>
+  <links id="pf11649199871255" target="pf11649199871251" source="pf11649199871259" outcome="sucesso_ins"/>
+  <links id="pf116491998712510" target="pf11649199871259" source="pf116491998714011" outcome="novo"/>
+  <links id="pf11649199871256" target="pf11649199871251" source="pf11649199871258" outcome="sucesso_atu"/>
+  <links id="pf11649199871253" target="pf11649199871251" source="pf11649199871251" outcome="sucesso_exc"/>
+  <links id="pf11649199871257" target="pf11649199871251" source="pf116491998714012" outcome="mostrar"/>
+  <links id="pf11649199871254" target="pf11649199871259" source="pf11649199871251" outcome="novo"/>
+</pageflow:Pageflow>
