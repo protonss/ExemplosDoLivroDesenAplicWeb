@@ -2,6 +2,7 @@ out
 vraptor
 .metadata
 *.zip
+*.html
+*.txt
 *.class
 *~
-
