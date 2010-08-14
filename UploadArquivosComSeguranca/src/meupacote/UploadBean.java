@@ -36,6 +36,88 @@ public class UploadBean {
 	public String getFilename() {
 		return filename;
 	}
+<<<<<<< HEAD
+	
+
+	public boolean doFilePost(HttpServletRequest request,
+							ServletContext context)
+    {
+            if (request.getContentType() == null){
+            	return false;
+            }
+                
+
+            if (!request.getContentType().startsWith("multipart/form-data"))
+            {
+            	setErro("Seu formul�rio n�o envia arquivos");
+                return false;
+            }
+         
+            
+            fileUpload.setSizeThreshold(4 * KB);
+            
+           
+            String path = context.getRealPath(getDiretorio());
+            try
+            {
+            	sfu.setSizeMax(getSize() * MB);
+            	
+                List list = sfu.parseRequest(request);
+                
+
+                for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+                    FileItem item = (FileItem)iterator.next();
+
+                    if (!item.isFormField()){
+                        filename = item.getName();
+                        
+                        
+                        if ((filename != null) && (!filename.equals(""))){
+                            
+                        	filename = (new File(filename)).getName();
+                            
+                            if(isPermission(filename)){
+                            	item.write(new File(path + "/" + filename));
+                            }
+                            else{
+                            	setErro("Arquivo n�o permitido");
+                            	return false;
+                            }
+                        }
+
+                    }
+                }
+                
+            }catch(FileUploadBase.SizeLimitExceededException slee){
+            	slee.printStackTrace();
+            	setErro("Tamanho excedido");
+            	return false;
+                
+            }catch (Exception e) {
+            	setErro("Uma Exceção ocorreu: "+e.getMessage());
+                e.printStackTrace();
+                return false;
+            }
+
+            return true;
+    }
+
+    
+
+
+/*
+    public boolean isPermission(String fileName)
+    {
+        String lowerCaseName = fileName.toLowerCase();
+        for (int i = 0; i < extensoesPermitidas.length; i++)
+        {
+            if (lowerCaseName.endsWith(extensoesPermitidas[i]))
+                return true;
+        }
+        return false;
+    }
+*/
+=======
 
 	public boolean doFilePost(HttpServletRequest request, ServletContext context) {
 		if (request.getContentType() == null) {
@@ -96,6 +178,7 @@ public class UploadBean {
 	 * i++) { if (lowerCaseName.endsWith(extensoesPermitidas[i])) return true; }
 	 * return false; }
 	 */
+>>>>>>> ARRUMANDO CODIGO DO PROJETO UploadArquivosComSeguranca
 	public void setSize(int size) {
 		this.size = size;
 	}
