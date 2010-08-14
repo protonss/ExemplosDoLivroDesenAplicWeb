@@ -49,7 +49,7 @@ public class UploadBean {
 
             if (!request.getContentType().startsWith("multipart/form-data"))
             {
-            	setErro("Seu formulário não envia arquivos");
+            	setErro("Seu formulï¿½rio nï¿½o envia arquivos");
                 return false;
             }
          
@@ -80,7 +80,7 @@ public class UploadBean {
                             	item.write(new File(path + "/" + filename));
                             }
                             else{
-                            	setErro("Arquivo não permitido");
+                            	setErro("Arquivo nï¿½o permitido");
                             	return false;
                             }
                         }
@@ -94,7 +94,7 @@ public class UploadBean {
             	return false;
                 
             }catch (Exception e) {
-            	setErro("Uma Exceção ocorreu: "+e.getMessage());
+            	setErro("Uma ExceÃ§Ã£o ocorreu: "+e.getMessage());
                 e.printStackTrace();
                 return false;
             }
